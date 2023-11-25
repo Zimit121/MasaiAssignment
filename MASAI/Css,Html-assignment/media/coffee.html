@@ -1,0 +1,160 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+     
+
+        .tom {
+           display: grid;
+           width: 75%;
+           margin: auto;
+           gap: 30px;
+           margin-top: 30px;
+           grid-template-columns: repeat(3 , 1fr );
+           grid-template-rows: repeat( 3 , 150px );
+           
+        }
+
+        .jerry {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        .jack {
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        p {
+            margin-top: 20px;
+            font-family: 'Poppins', sans-serif;
+            color: grey;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .jack > h2 + h2 {
+            display: flex;
+            color: red;
+        }
+
+
+        /* media  */
+
+
+
+
+/* medium screen */
+
+  @media all and (min-width: 521px) and (max-width: 750px) {
+            .tom {
+           width: 90%;
+           margin: auto;
+           gap: 30px;
+           grid-template-columns: repeat(2 , 1fr );
+        }
+        }
+
+   
+
+/* small screen */
+
+           @media all and (min-width: 370px) and (max-width: 520px) {
+            .tom {
+           width: 90%;
+           margin: auto;
+           gap: 30px;
+           grid-template-columns: repeat(1 , 1fr );
+        }
+        }
+
+
+
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="tom">
+        <div class="jerry">
+            <div class="jack">
+                <h2>Cappuccino</h2>
+                <h2>$49</h2>
+            </div>
+            <p>Usage of the Internet is becoming more common due to rapid advance.</p>
+        </div>
+            
+        <div class="jerry">
+            <div class="jack">
+                <h2>Americano</h2>
+                <h2>$49</h2>
+            </div>
+            <p>Usage of the Internet is becoming more common due to rapid advance.</p>
+        </div>
+        <div class="jerry">
+            <div class="jack">
+                <h2>Espresso</h2>
+                <h2>$49</h2>
+            </div>
+            <p>Usage of the Internet is becoming more common due to rapid advance.</p>
+        </div>
+        <div class="jerry">
+            <div class="jack">
+                <h2>Macchiato</h2>
+                <h2>$49</h2>
+            </div>
+            <p>Usage of the Internet is becoming more common due to rapid advance.</p>
+        </div>
+        <div class="jerry">
+            <div class="jack">
+                <h2>Mocha</h2>
+                <h2>$49</h2>
+            </div>
+            <p>Usage of the Internet is becoming more common due to rapid advance.</p>
+        </div>
+        <div class="jerry">
+            <div class="jack">
+                <h2>Coffee Latte</h2>
+                <h2>$49</h2>
+            </div>
+            <p>Usage of the Internet is becoming more common due to rapid advance.</p>
+        </div>
+        <div class="jerry">
+            <div class="jack">
+                <h2>Piccolo Latte</h2>
+                <h2>$49</h2>
+            </div>
+            <p>Usage of the Internet is becoming more common due to rapid advance.</p>
+        </div>
+        <div class="jerry">
+            <div class="jack">
+                <h2>Ristretto</h2>
+                <h2>$49</h2>
+            </div>
+            <p>Usage of the Internet is becoming more common due to rapid advance.</p>
+        </div>
+        <div class="jerry">
+            <div class="jack">
+                <h2>Affogato</h2>
+                <h2>$49</h2>
+            </div>
+            <p>Usage of the Internet is becoming more common due to rapid advance.</p>
+        </div>
+       
+    </div>
+</body>
+
+</html>

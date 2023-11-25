@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <form action="">
+        <label for="name">Name :</label>
+        <input type="text"><br>
+        <label for="rollno">Roll_no :</label>
+        <input type="number"><br>
+        <label for="class">Class :</label>
+        <input type="number"><br>
+        <label for="section">Section :</label>
+        <input type="text"><br>
+        <label for="science">Science :</label>
+        <input type="text"><br>
+        <label for="maths">Maths :</label>
+        <input type="text"><br>
+        <label for="socialscience">socialscience :</label>
+        <input type="text"><br>
+        <label for="english">English :</label>
+        <input type="text"><br>
+        <label for="hindi">Hindi :</label>
+        <input type="text"> <br>
+        <button>Submit</button>
+    </form> -->
+</body>
+<script>
+    function Student(name, rollno, Class, section, science, maths, socialscience, english, hindi) {
+        this.Name = name;
+        this.Rollno = rollno;
+        this.Class = Class;
+        this.Section = section;
+        this.Science = science;
+        this.Maths = maths;
+        this.Socialscience = socialscience;
+        this.English = english;
+        this.Hindi = hindi;
+
+        //  console.log( `Name:${name} , Roll.no:${rollno} , Class:${Class} , Section:${section}`);
+        console.log("+---------------------+");
+        console.log("|     REPORT CARD     |");
+        console.log("+---------------------+");
+        console.log(`| Name     -  ${this.name}   |`);
+        console.log(`| Roll no. -  ${this.Rollno}      |`);
+        console.log(`| Class    -  ${this.Class}       |`);
+        console.log(`| Section  -  ${this.Section}       |`);
+        console.log(`| Science  -  ${this.Science}      |`);
+        console.log(`| Maths    -  ${this.Maths}      |`);
+        console.log(`| S.Sc     -  ${this.Socialscience}      |`);
+        console.log(`| English  -  ${this.English}      |`);
+        console.log(`| Hindi    -  ${this.Hindi}      |`);
+        console.log("+---------------------+");
+
+    }
+    
+   
+    Student("Rahul", 33, 8, "A",59,94,44,83,77)
+</script>
+
+</html>

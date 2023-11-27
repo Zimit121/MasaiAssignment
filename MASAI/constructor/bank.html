@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function BankAccount(accountNumber, name, type, balance) {
+        this.accountNumber = accountNumber;
+        this.name = name;
+        this.type = type;
+        this.balance = balance;
+        this.deposit = function (amount) {
+            this.balance += amount;
+        }
+        this.withdraw = function (amount) {
+            if (this.balance >= amount) {
+                this.balance -= amount;
+            }
+            else if(amount > this.balance){
+                this.balance = (this.balance-amount)
+            }
+            else {
+                console.log("Your account dosent have sufficient balance", this.balance)
+            }
+        }
+        this.checkbalance = function () {
+            console.log(this.balance)
+        }
+        let IsActive = true;
+
+        this.IsActive = function () {
+            if (IsActive) {
+                console.log("Your account Status is Active")
+            }
+        }
+    }
+
+    function getTotalBalance() {
+        let sum = 0;
+        for (i = 0; i < Account.length; i++) {
+            sum += Account[i].balance
+        }
+        console.log(sum)
+    }
+
+    let ac1 = new BankAccount(1230, "zimit", "saving", 1000)
+    let ac2 = new BankAccount(1231, "dhruv", "saving", 1000)
+    let ac3 = new BankAccount(1232, "mihir", "saving", 1000)
+
+    ac1.deposit(500)
+    ac1.withdraw(700)
+    console.log(ac1)
+
+    ac2.deposit(500)
+    ac2.withdraw(1600)
+    console.log(ac2)
+
+    ac3.deposit(100)
+    ac3.withdraw(700)
+    console.log(ac3)
+
+    ac1.IsActive()
+    ac2.IsActive()
+    ac3.IsActive()
+
+
+    ac1.checkbalance()
+    ac2.checkbalance()
+    ac3.checkbalance()
+
+    let Account = [ac1, ac2, ac3];
+    console.log(Account);
+
+    getTotalBalance()
+</script>
+
+</html>

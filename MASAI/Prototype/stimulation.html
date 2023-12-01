@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hi</h1>
+</body>
+<script>
+    function Vehicle(brand, model, speed, fuelType){
+        this.brand = brand;
+        this.model = model;
+        this.speed = speed;
+        this.fuelType = fuelType
+    }
+
+    Vehicle.prototype.accelerate = function(){
+        this.speed += 10
+    };
+    Vehicle.prototype.brake = function(){
+        this.speed -= 5
+    }
+    Vehicle.prototype.refuel = function(){
+        console.log("Vehicle need Refueling!!!!");
+    }
+
+    // // 
+
+    // CAR 
+
+    function Car(brand, model, speed, fuelType, noOfWheels){
+        Vehicle.call(this,brand,model,speed,fuelType)
+        this.noOfWheels = noOfWheels;
+    }
+
+    Object.setPrototypeOf(Car.prototype,Vehicle.prototype);
+
+    //   
+ 
+
+    // AIRPLANE
+    function Airplane(brand, model, speed, fuelType, noOfEngines, hasLandingGear){
+        Vehicle.call(this,brand,model,speed,fuelType)
+        this.noOfEngines = noOfEngines;
+        this.hasLandingGear = hasLandingGear;
+    }
+
+    Airplane.prototype.takeoff = function(){
+        console.log(this.brand,"is ready to takeoff");
+    }
+
+    Object.setPrototypeOf(Airplane.prototype,Vehicle.prototype);
+
+    // 
+
+
+
+
+    let v1 = new Vehicle('tata',2020,0,'petrol');
+    console.log(v1);
+    v1.accelerate()
+    v1.brake()
+    v1.refuel()
+
+
+    let car1 = new Car('suzuki',2025,0,'petrol',4)
+    console.log(car1);
+    car1.accelerate()
+    car1.brake()
+    car1.refuel()
+
+
+    let air1 = new Airplane('Emirates',2023,0,'petrol',3,true)
+    console.log(air1)
+    air1.takeoff()
+
+
+</script>
+</html>

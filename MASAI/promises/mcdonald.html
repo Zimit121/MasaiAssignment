@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>food ordering</h1>
+    <div id="status"></div>
+    <div id="imageCont"></div>
+    <div id="foodItems">
+        <label for="">Burger</label>
+        <input type="checkbox" value="Burger">
+        <label for="">Fries</label>
+        <input type="checkbox" value="Fries">
+        <label for="">Pasta</label>
+        <input type="checkbox" value="Pasta">
+    </div>
+    <button onclick="orderfood()">Order Food</button>
+</body>
+<script>
+    let foodItems = document.querySelectorAll("#foodItems input");
+    let status = document.querySelector("#status");
+
+    function orderfood() {
+        let items = Array.from(foodItems);
+        let h1 = document.createElement("h1");
+        h1.innerText = "Food is being ordered"
+        status.append(h1)
+        promiseCreate(items).then((response) => {
+            console.log(response);
+            h1.innerText = `${response} has been ordered successfully`;
+        })
+    }
+
+
+    function promiseCreate(items){
+        let imageCont = document.querySelector("#imageCont");
+        let images = [
+            {
+                name : "Burger",
+                url : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Ynne2LBVL1ZDNblirhUMNAaUOJcK7yEnFA&usqp=CAU"
+            },
+            {
+                name : "Fries",
+                url : "https://static.toiimg.com/thumb/msid-101707585,width-960,height-1280,resizemode-6.cms"
+            },
+            {
+                name : "Pasta",
+                url : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRABl_Z7UXzuxM6YzreugxSzvFegpHaga1dbg&usqp=CAU"
+            },
+        ]
+
+        let checkedItems = items.filter((ele) =>{
+            return ele.checked
+        })
+        let imageFliter = images.filter((ele)=>{
+            return ele.name == checkedItems[0].value
+        })
+
+
+        let promise = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                let image = document.createElement("img");
+                image.src = imageFliter[0].url;
+                image.style.width = "200px";
+                imageCont.append(image)
+                resolve(checkedItems[0].value) 
+            },2000)
+        })
+
+        return promise
+    }
+</script>
+
+</html>

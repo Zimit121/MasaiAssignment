@@ -1,0 +1,92 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1 id="heading"></h1>
+        <div id="numbers">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>0</button>
+        </div>
+
+        <div id="operators">
+            <button>+</button>
+            <button>-</button>
+            <button>*</button>
+            <button>/</button>
+        </div>
+
+        <button id="answers">=</button>
+    </body>
+    <script>
+        let heading = document.getElementById('heading');
+        let keypad = document.querySelectorAll('#numbers > button');
+        let operators = document.querySelectorAll('#operators > button');
+        let answers = document.getElementById('answers');
+        let isFirst = true;
+        let firstnumber = "";
+        let secondnumber = "";
+        let opertar = "";
+
+
+        answers.addEventListener('click', function () {
+            heading.innerText = calculator(firstnumber, secondnumber, opertar);
+        })
+
+
+        for (let i = 0; i < keypad.length; i++) 
+        {
+            keypad[i].addEventListener('click',function() 
+            {
+                if (isFirst == true) 
+                {
+                    firstnumber += keypad[i].innerText
+                    heading.innerText = firstnumber;
+                }
+                 else 
+                {
+                    secondnumber += keypad[i].innerText
+                    heading.innerText = secondnumber;
+                }
+            })
+        }
+
+        for (let i = 0; i < operators.length; i++) {
+            operators[i].addEventListener('click',function() 
+            {
+                isFirst = false;
+                opertar = operators[i].innerText;
+            })
+        }
+
+        function calculator(firstnumber, secondnumber, opertar) {
+            switch (opertar) {
+                case "+":
+                    return Number(firstnumber) + Number(secondnumber);
+
+                case "-":
+                    return Number(firstnumber) - Number(secondnumber);
+
+                case "*":
+                    return Number(firstnumber) * Number(secondnumber);
+
+                case "/":
+                    return Number(firstnumber) / Number(secondnumber);
+            }
+        }
+    </script>
+
+    </html>

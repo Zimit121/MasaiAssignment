@@ -24,10 +24,10 @@ function retrieveData() {
             <table>
                 <tr>
                     <th>Name</th>
-                    <th>${userData.name}</th>
+                    <th>Age</th>
                 </tr>
                 <tr>
-                    <td>Age</td>
+                    <td>${userData.name}</td>
                     <td>${userData.age}</td>
                 </tr>
             </table>

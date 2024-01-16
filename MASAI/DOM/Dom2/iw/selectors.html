@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practise Selectors</title>
+</head>
+
+<body>
+    <h1 id="headerone">First H1</h1>
+    <h1>Second H1</h1>
+    <h3>First H3</h3>
+    <h3>Second H3</h3>
+    <h5>First H5</h5>
+    <h5>Second H5</h5>
+    <h5>Third H5</h5>
+    <div class="green">First DIV</div>
+    <div class="red">Second DIV</div>
+    <div class="blue">Third DIV</div>
+    <p class="green">First P</p>
+    <p class="red">Second P</p>
+    <p class="blue">Third P</p>
+    <hr />
+    <button onClick="changeH1()">Change H1</button>
+    <button onClick="changeH3()">Change H3</button>
+    <button onClick="changeH5()">Change H5</button>
+    <button onClick="changeGreen()">Change Green</button>
+    <button onClick="changeRed()">Change Red</button>
+    <button onClick="changeBlue()">Change Blue</button>
+    <script>
+        let headerfirst = document.getElementById('headerone')
+        let hearderthird = document.getElementsByTagName('h3')
+        let headfifth = document.getElementsByTagName('h5')
+        let greeName = document.getElementsByClassName('green')
+        let redName = document.getElementsByClassName('red')
+        let blueName = document.getElementsByClassName('blue')
+
+
+        function changeH1() {
+            // the colour of first <h1> should turn to red
+            //   document.getElementById("headerone").style.color = "red";
+            headerfirst.style.color = "red"
+        }
+
+        function changeH3() {
+            // the colour of all <h3> should turn to green
+            for (let i = 0; i < hearderthird.length; i++) {
+                hearderthird[i].style.color = "yellow"
+            }
+        }
+
+        function changeH5() {
+            // the colour of all <h5> should turn to blue
+            for (let i = 0; i < headfifth.length; i++) {
+                headfifth[i].style.color = "blue"
+            }
+        }
+
+        function changeGreen() {
+            // all the elements with the class green should change to green
+            for (let i = 0; i < greeName.length; i++) {
+                greeName[i].style.color = "green"
+            }
+        }
+
+        function changeRed() {
+            // all the elements with the class red should change to red
+            for (let i = 0; i < redName.length; i++) {
+                redName[i].style.color = "red"
+            }
+        }
+
+        function changeBlue() {
+            // all the elements with the class blue should change to blue
+            for (let i = 0; i < blueName.length; i++) {
+                blueName[i].style.color = "blue"
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="cont">
+        <button>9</button>
+        <button>8</button>
+        <button>7</button>
+        <button>6</button>
+        <button>5</button>
+        <button>4</button>
+        <button>3</button>
+        <button>2</button>
+        <button>1</button>
+        <button>0</button>
+    </div>
+    <button id="btn">play</button>
+    <h1 id="content"></h1>
+</body>
+<script>
+    let Allbutton = document.querySelectorAll('#cont > button')
+    let heading = document.getElementById('content')
+    for(let i=0 ; i<Allbutton.length ; i++){
+        Allbutton[i].addEventListener('click',function(){
+            heading.innerText = Allbutton[i].innerText
+        })
+    }
+</script>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main_div {
+            width: 40%;
+            height: 700px;
+            margin: auto;
+            border: 2px double black;
+        }
+
+        #min_max {
+            display: flex;
+            justify-content: space-evenly;
+            text-align: center;
+        }
+
+        #min {
+            font-size: 27px;
+            text-align: center;
+            width: 180px;
+            background-color: #FE0202;
+            font-weight: 500;
+        }
+
+        #max {
+            font-size: 27px;
+            text-align: center;
+            width: 180px;
+            background-color: #00AE00;
+            font-weight: 500;
+        }
+
+        .dark {
+            background-color: #668100;
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        .light {
+            background-color: #FF6600;
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        .diff {
+            height: 70px;
+            width: 70px;
+            background-color: #860D6D;
+            font-size: 25px;
+            font-weight: 700;
+            color: white;
+        }
+
+        #num > button:last-child {
+            grid-column-start: 2;
+        }
+
+        #btn {
+            background-color: black;
+            color: white;
+            font-size: 25px;
+        }
+
+        #min_max>div>input {
+            height: 60px;
+            margin-top: 10%;
+        }
+
+        #min_max>div>input+h1 {
+            margin-top: 2%;
+        }
+
+        #score {
+            text-align: center;
+        }
+
+        #score h1 {
+            margin-top: 2%;
+            margin-bottom: 0%;
+        }
+
+        #score h1+input {
+            height: 70px;
+            width: 50%;
+            background-color: #B3B3B3;
+        }
+
+        #num {
+            width: 50%;
+            margin: auto;
+            margin-top: 2%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            justify-content: space-evenly;
+        }
+
+        /* #num>button:last-child {
+        } */
+
+        #result {
+            font-size: 27px;
+        }
+
+        #num>button {
+            width: 70px;
+            height: 70px;
+            margin-left: 10%;
+        }
+
+        #enter {
+            text-align: center;
+        }
+
+        #enter>button {
+            width: 50%;
+            height: 60px;
+            margin-top: 1%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main_div">
+        <div id="min_max">
+            <div>
+                <input type="number" id="min" value=43>
+                <h1>MIN</h1>
+            </div>
+            <div>
+                <input type="number" id="max" value=2019>
+                <h1>MAX</h1>
+            </div>
+        </div>
+        <div id="score">
+            <h1>SCORE</h1>
+            <input type="number" id="result">
+        </div>
+        <div id="num">
+            <button class="dark">1</button>
+            <button class="light">2</button>
+            <button class="dark">3</button>
+            <button class="light">4</button>
+            <button class="light">5</button>
+            <button class="light">6</button>
+            <button class="dark">7</button>
+            <button class="light">8</button>
+            <button class="dark">9</button>
+            <button class="diff">0</button>
+        </div>
+        <div id="enter">
+            <button id="btn">ENTER</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    let min = document.getElementById('min')
+    let max = document.getElementById('max')
+    let result = document.getElementById('result')
+    let num = document.querySelectorAll('#num > button')
+
+    for (let i = 0; i < num.length; i++) {
+        num[i].addEventListener('click', function () {
+            result.value += num[i].innerText
+        })
+    }
+
+    document.getElementById('btn').addEventListener("click", function () {
+        if (Number(result.value) < Number(min.value)) {
+            min.value = result.value
+            result.value = ""
+        } else if (Number(result.value) > Number(max.value)) {
+            max.value = result.value
+            result.value = ""
+        } else {
+            result.value = ""
+        }
+        console.log(typeof (result.value))
+    })
+</script>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhonePe Payment</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #processing {
+            color: blue;
+        }
+
+        #success {
+            color: green;
+        }
+
+        #failure {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button id="payButton">Pay with PhonePe</button>
+        <div id="processing" class="hidden">Processing...</div>
+        <div id="success" class="hidden">Payment Successful!</div>
+        <div id="failure" class="hidden">Payment Failed!</div>
+    </div>
+    <script>
+       function processPayment() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const isSuccess = Math.random() < 0.5;
+            isSuccess ? resolve("Payment successful") : reject("Payment failed");
+        }, 2000);
+    });
+}
+
+function updateUI(elementId, message) {
+    const element = document.getElementById(elementId);
+    element.textContent = message;
+    element.classList.remove("hidden");
+}
+
+document.getElementById("payButton").addEventListener("click", () => {
+    updateUI("processing", "Processing...");
+    processPayment()
+        .then((message) => updateUI("success", message))
+        .catch((error) => updateUI("failure", error))
+        .finally(() => {
+            setTimeout(() => {
+                document.getElementById("processing").classList.add("hidden");
+            }, 2000);
+        });
+});
+    </script>
+</body>
+
+</html>

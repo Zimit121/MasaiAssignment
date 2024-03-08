@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #grandparent > #parent > img{
+            width: 40%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="grandparent">
+        <div id="parent">
+            <img src="https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_1280.jpg" alt="">
+            <img src="https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg" alt="">
+            <img src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?cs=srgb&dl=pexels-james-wheeler-414612.jpg&fm=jpg" alt="">
+            <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg" alt="">
+            <img src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg" alt="">
+            <img src="https://www.shutterstock.com/image-photo/micro-peacock-feather-hd-imagebest-260nw-1127238599.jpg" alt="">
+            <img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_640.jpg" alt="">
+            <img src="https://t3.ftcdn.net/jpg/05/35/47/38/360_F_535473874_OWCa2ohzXXNZgqnlzF9QETsnbrSO9pFS.jpg" alt="">
+            <img src="https://t3.ftcdn.net/jpg/05/71/06/76/360_F_571067620_JS5T5TkDtu3gf8Wqm78KoJRF1vobPvo6.jpg" alt="">
+            <img src="https://e0.pxfuel.com/wallpapers/491/601/desktop-wallpaper-ultra-original-and-background-it-ultra.jpg" alt="">
+            <img src="https://images3.alphacoders.com/134/thumb-350-1347286.jpeg" alt="">
+            <img src="https://c4.wallpaperflare.com/wallpaper/379/650/373/4k-desktop-background-hd-wallpaper-preview.jpg" alt="">
+            <img src="https://i.pinimg.com/736x/ea/fe/ab/eafeab0f48f1e04acc5847c37d01d3c0.jpg" alt="">
+            <img src="https://wallpapercave.com/wp/wp3386774.jpg" alt="">
+            <img src="https://e0.pxfuel.com/wallpapers/66/135/desktop-wallpaper-mammoth-mountain-mammoth-lakes.jpg" alt="">
+            <img src="https://www.jansatta.com/wp-content/uploads/2022/08/peacock-feather-11_11zon.jpg?w=768" alt="">
+            <img src="https://img.freepik.com/free-photo/autumn-leaf-falling-revealing-intricate-leaf-vein-generated-by-ai_188544-9869.jpg" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5mcFM65GX91VwS4HhcHnX5oFIXwOUcUAc8mZpD-bnz4WyO24ezEmpK7Vb4mBVmXvEmzc&usqp=CAU" alt="">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/031/622/459/small/background-for-productgraphy-ai-generated-photo.jpg" alt="">
+            <img src="https://www.shutterstock.com/image-photo/flowers-style-watercolor-art-luxurious-260nw-2248702485.jpg" alt="">
+        </div>
+    </div>
+    <button id="prev" onclick="Prev()"> < </button>
+    <button id="next" onclick="Next()"> > </button>
+</body>
+<script>
+    let currentIndex = 0;
+    function Prev(){
+    var images = document.getElementById('parent').getElementsByTagName('img');
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+}
+
+function Next(){
+    var images = document.getElementById('parent').getElementsByTagName('img');
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+}
+
+function showImage(index) {
+    var images = document.getElementById('parent').getElementsByTagName('img');
+    for (var i = 0; i < images.length; i++) {
+        images[i].style.display = 'none'; 
+    }
+    images[index].style.display = 'block';
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    showImage(currentIndex); 
+});
+</script>
+</html>

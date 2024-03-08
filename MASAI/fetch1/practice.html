@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+    <style>
+        #root {
+            border: 5px solid red;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .product-card {
+            border: 1px solid black;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+        }
+
+        .product-card > img {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+    
+    </div>
+</body>
+<script>
+    function DisplayData(productList) {
+
+        productList.forEach(product => {
+            let ProductCard = document.createElement("div");
+            ProductCard.className = "product-card";
+
+            let ProductImage = document.createElement("img");
+            ProductImage.src = product.image;
+            ProductImage.style.width = "500px";
+            ProductImage.style.width = "80px"
+
+
+            let ProductTitle = document.createElement("p");
+            ProductTitle.textContent = product.title;
+
+            let ProductPrice = document.createElement("p");
+            ProductPrice.textContent = `Price : USD$ ${product.price}`
+
+            let ProductCategory = document.createElement("p");
+            ProductCategory.textContent = product.category
+
+            let ProductDescription = document.createElement("p");
+            ProductDescription.textContent = product.description;
+
+            let ProductRating = document.createElement("p");
+            ProductRating.textContent = `Rating : ${product.rating.rate}`;
+
+            ProductCard.append(ProductImage, ProductTitle, ProductDescription, ProductCategory, ProductPrice,
+                ProductRating);
+            root.append(ProductCard)
+        });
+    }
+
+   
+
+    fetch("https://fakestoreapi.com/products")
+        .then(function (res) {
+            return res.json()
+        })
+        .then(function (final) {
+            DisplayData(final)
+        })
+        .catch(function (err) {
+            let root = document.getElementById("root")
+            console.log(err);
+            root.textContent = "Something went Wrong";
+
+        })
+</script>
+
+</html>

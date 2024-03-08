@@ -8,59 +8,58 @@
 </head>
 
 <body>
-    <h1 class="timer">00.00.00</h1>
-    <input id="hours" type="number" placeholder="hours">
-    <input id="minutes" type="number" min="1" max="60" placeholder="minutes">
-    <input id="seconds" type="number" min="1" max="60" placeholder="seconds">
+    <h1 class="timer">00:00:00</h1>
+    <input id="hours" type="number" min="0" placeholder="hours">
+    <input id="minutes" type="number" min="0" max="59" placeholder="minutes">
+    <input id="seconds" type="number" min="0" max="59" placeholder="seconds">
     <br>
-    <button onclick="Startimer()">Start</button>
-    <button onclick="Pausetimer()">Pause</button>
-    <button onclick="Resetimer()">Reset</button>
+    <button onclick="Start()">Start</button>
+    <button onclick="Pause()">Pause</button>
+    <button onclick="Reset()">Reset</button>
 </body>
 <script>
-    let hoursInput = document.querySelector("#hours")
-    let minutesInput = document.querySelector("#minutes")
-    let secondsInput = document.querySelector("#seconds")
+    let JSTimer;
+    let hoursInput = document.getElementById('hours');
+    let minutesInput = document.getElementById('minutes');
+    let secondsInput = document.getElementById('seconds');
 
-    function JStimer(totalSeconds) {
-        let hours = Math.floor(totalSeconds / 3600)
-        let minutes = Math.floor((totalSeconds % 3600) / 60)
-        let seconds = totalSeconds % 60
+    function timer() {
+        let hours = parseInt(hoursInput.value);
+        let minutes = parseInt(minutesInput.value);
+        let seconds = parseInt(secondsInput.value);
 
-        hoursInput.value = hours;
-        minutesInput.value = minutes;
-        secondsInput.value = seconds;
-    }
-
-    function Startimer() {
-        let hours = hoursInput.value;
-        let minutes = minutesInput.value;
-        let seconds = secondsInput.value;
-
-        let totalSeconds = hours * 3600 + minutes * 60 + seconds;
-        // console.log(totalSeconds)
-
-        if (totalSeconds > 0) {
-            timer = setInterval(function () {
-                if (totalSeconds <= 0) {
-                    clearInterval(timer);
-                } else {
-                    JStimer(totalSeconds);
-                    totalSeconds--;
+        if (seconds > 0) {
+            seconds--;
+        } else {
+            if (minutes > 0) {
+                minutes--;
+                seconds = 59;
+            } else {
+                if (hours > 0) {
+                    hours--;
+                    minutes = 59;
+                    seconds = 59;
                 }
-            }, 1000);
+            }
         }
+        document.querySelector(".timer").textContent = `${hours}:${minutes}:${seconds}`;
     }
 
-    function Pausetimer() {
-        clearInterval(timer);
+
+    function Start() {
+        JSTimer = setInterval(timer, 1000);
     }
 
-    function Resetimer() {
-        clearInterval(timer);
-        hoursInput.value = 0;
-        minutesInput.value = 0;
-        secondsInput.value = 0;
+    function Pause() {
+        clearInterval(JSTimer);
+    }
+
+    function Reset() {
+        clearInterval(JSTimer);
+        hoursInput.value = '';
+        minutesInput.value = '';
+        secondsInput.value = '';
+        document.querySelector(".timer").textContent = "00:00:00";
     }
 </script>
 

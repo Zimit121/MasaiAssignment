@@ -1,5 +1,5 @@
 let root = document.getElementById('root');
-let API_URL = `http://fakestoreapi.com/products`;
+let API_URL = `http://fakestoreapi.com/products/category/women's clothing`;
 
 
 async function getData(URL){

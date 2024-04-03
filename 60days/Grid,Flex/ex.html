@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0%;
+        }
+
+        h1 {
+            font-weight: 800;
+            font-size: 50px;
+            background-color: #333333;
+            height: 90px;
+            color: skyblue;
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        #navbar {
+            background-color: #444444;
+            height: 60px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        #navbar>select {
+            background-color: #444444;
+            border: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        #data>div {
+            height: 150px;
+            width: 97%;
+            background-color: antiquewhite;
+            display: flex;
+            margin: 20px;
+            justify-content: space-between;
+            border-radius: 9px;
+            box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        }
+
+        #data>div>div {
+            width: 50%;
+            background-color: #FFFFFF;
+            border-top-left-radius: 9px;
+            border-bottom-left-radius: 9px;
+        }
+
+        #data>div>div+div {
+            border-top-right-radius: 9px;
+            border-bottom-right-radius: 9px;
+        }
+
+        #data>div>div>img {
+            width: 150px;
+            height: 100px;
+            margin-top: 25px;
+            padding-left: 50px;
+        }
+
+        #data>div>div+div>h2 {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        #data>div>div+div>h2+p {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        @media all and (max-width: 739px) {
+            #navbar {
+                display: block;
+                text-align: center;
+            }
+
+            #navbar>select {
+                width: 100%;
+                margin: 10px;
+            }
+
+            #data>div {
+                flex-direction: column;
+                height: auto;
+            }
+
+            #data>div>div {
+                width: 100%;
+                border-radius: 9px;
+            }
+
+            #data>div>div>img {
+                width: 100%;
+                height: auto;
+                margin-top: 10px;
+                padding-left: 0;
+            }
+
+            #data>div>div+div {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+
+            #data>div>div+div>h2 {
+                text-align: center;
+            }
+
+            #data>div>div+div>h2+p {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My Portfolio</h1>
+    <div id="navbar">
+        <select>
+            <option>Home</option>
+            <option>Education</option>
+            <option>Projects</option>
+            <option>Skills</option>
+            <option>Contact Me</option>
+        </select>
+    </div>
+    <br>
+    <div id="data">
+        <div>
+            <div>
+                <img src="./Home.png" alt="">
+            </div>
+            <div>
+                <h2 style="color: #4CAF50;">Home</h2>
+                <p>This is a dummy description for the Home section. Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit.</p>
+            </div>
+        </div>
+        <!-- Repeat the above structure for the remaining sections -->
+    </div>
+</body>
+
+</html>

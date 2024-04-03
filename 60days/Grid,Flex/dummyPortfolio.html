@@ -1,149 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        * {
-            margin: 0%;
-        }
+      * {
+        margin: 0%;
+      }
 
-        h1 {
-            font-weight: 800;
-            font-size: 50px;
-            background-color: #333333;
-            height: 90px;
-            color: skyblue;
-            text-align: center;
-            padding-top: 30px;
-        }
+      h1 {
+        font-weight: 800;
+        font-size: 50px;
+        background-color: #333333;
+        height: 90px;
+        color: skyblue;
+        text-align: center;
+        padding-top: 30px;
+      }
 
+      #navbar {
+        background-color: #444444;
+        height: 60px;
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+  
+
+      #navbar > button {
+        background-color: #444444;
+        border: none;
+        color: white;
+        font-size: 18px;
+      }
+
+      #data > div {
+        height: 150px;
+        width: 97%;
+        background-color: antiquewhite;
+        display: flex;
+        margin: 20px;
+        justify-content: space-between;
+        border-radius: 9px;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+          rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+      }
+
+      #data > div > div {
+        width: 50%;
+        background-color: #ffffff;
+        border-top-left-radius: 9px;
+        border-bottom-left-radius: 9px;
+      }
+
+      #data > div > div + div {
+        border-top-right-radius: 9px;
+        border-bottom-right-radius: 9px;
+      }
+
+      #data > div > div > img {
+        width: 150px;
+        height: 100px;
+        margin-top: 25px;
+        padding-left: 50px;
+      }
+
+      #data > div > div + div > h2 {
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      #data > div > div + div > h2 + p {
+        margin-top: 20px;
+        font-size: 16px;
+      }
+
+      @media only screen and (min-width: 701px) {
+        #mobileNav {
+          display: none; 
+        }
+      }
+
+      @media only screen and (max-width: 700px) {
         #navbar {
-            background-color: #444444;
-            height: 60px;
-            display: flex;
-            justify-content: space-evenly;
+          display: none; 
         }
-
-        #navbar>button {
-            background-color: #444444;
-            border: none;
-            color: white;
-            font-size: 18px;
+        #mobileNav>select{
+          width: 100%;
+          background-color: #333333;
+          border: 0%;
+          color: white;
+          height: 50px;
+          font-size: 25px;
         }
-
-        #data>div {
-            height: 150px;
-            width: 97%;
-            background-color: antiquewhite;
-            display: flex;
-            margin: 20px;
-            justify-content: space-between;
-            border-radius: 9px;
-            box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        #data>div{
+          flex-direction: column;
+          height: auto;
+          width: 80%;
+          margin: auto;
+          margin-bottom: 20px;
+          border-top-right-radius: 9px;
         }
-
-        #data>div>div {
-            width: 50%;
-            background-color: #FFFFFF;
-            border-top-left-radius: 9px;
-            border-bottom-left-radius: 9px;
+        #data>div>div>img{
+          display: block;
+          margin: auto;
+          margin-top: 10px;
         }
-
-        #data>div>div+div{
-            border-top-right-radius: 9px;
-            border-bottom-right-radius: 9px;
+        #data>div>div{
+          width: 100%;
+          border-top-right-radius: 9px;
         }
-
-        #data>div>div>img {
-            width: 150px;
-            height: 100px;
-            margin-top: 25px;
-            padding-left: 50px;
+        #data>div>div>p{
+          width: 80%;
+          margin: auto;
         }
-
-        #data>div>div+div>h2 {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        #data>div>div+div>h2+p {
-            margin-top: 20px;
-            font-size: 16px;
-        }
-
-        /* @media all and (max-width : 750px){
-            #data>div{
-
-            }
-        } */
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>My Portfolio</h1>
-    <div id="navbar">
+    <div>
+      <div id="navbar">
         <button>Home</button>
         <button>Education</button>
         <button>Projects</button>
         <button>Skills</button>
         <button>Contact Me</button>
+      </div>
+      <div id="mobileNav">
+        <select>
+          <option>Home</option>
+          <option>Education</option>
+          <option>Projects</option>
+          <option>Skills</option>
+          <option>Contact Me</option>
+        </select>
+      </div>
     </div>
-    <br>
+    <br />
     <div id="data">
+      <div>
         <div>
-            <div>
-                <img src="./Home.png" alt="">
-            </div>
-            <div>
-                <h2 style="color: #4CAF50;">Home</h2>
-                <p>This is a dummy description for the Home section. Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit.</p>
-            </div>
+          <img src="./Home.png" alt="" />
         </div>
         <div>
-            <div>
-                <img src="./Education.jpg" alt="">
-            </div>
-            <div>
-                <h2 style="color: #EC4963;">Education</h2>
-                <p>This is a dummy description for the Education section. Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit.</p>
-            </div>
+          <h2 style="color: #4caf50">Home</h2>
+          <p>
+            This is a dummy description for the Home section. Lorem ipsum dolor
+            sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+      </div>
+      <div>
+        <div>
+          <img src="./Education.jpg" alt="" />
         </div>
         <div>
-            <div>
-                <img src="./Projects.jpg" alt="">
-            </div>
-            <div>
-                <h2 style="color: #FFC107;">Projects</h2>
-                <p>This is a dummy description for the Projects section. Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit.</p>
-            </div>
+          <h2 style="color: #ec4963">Education</h2>
+          <p>
+            This is a dummy description for the Education section. Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+      </div>
+      <div>
+        <div>
+          <img src="./Projects.jpg" alt="" />
         </div>
         <div>
-            <div>
-                <img src="./Skills.jpg" alt="">
-            </div>
-            <div>
-                <h2 style="color: #9C27B2;">Skills</h2>
-                <p>This is a dummy description for the Skills section. Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit.</p>
-            </div>
+          <h2 style="color: #ffc107">Projects</h2>
+          <p>
+            This is a dummy description for the Projects section. Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+      </div>
+      <div>
+        <div>
+          <img src="./Skills.jpg" alt="" />
         </div>
         <div>
-            <div>
-                <img src="./Contact Me.jpg" alt="">
-            </div>
-            <div>
-                <h2 style="color: #36A3F6;">Contact Me</h2>
-                <p>This is a dummy description for the Contact Me section. Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit.</p>
-            </div>
+          <h2 style="color: #9c27b2">Skills</h2>
+          <p>
+            This is a dummy description for the Skills section. Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit.
+          </p>
         </div>
+      </div>
+      <div>
+        <div>
+          <img src="./Contact Me.jpg" alt="" />
+        </div>
+        <div>
+          <h2 style="color: #36a3f6">Contact Me</h2>
+          <p>
+            This is a dummy description for the Contact Me section. Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

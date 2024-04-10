@@ -1,0 +1,142 @@
+*{
+    margin: 0%;
+}
+hr{
+    margin: 3px 0px 3px 0px;
+}
+#navbar1{
+    display: flex;
+    background-color: #EEEEEE;
+}
+#navbar1>div:first-child{
+    width: 60%;
+    padding-left: 10%;
+}
+#navbar1>div:last-child{
+    width: 40%;
+    text-align: center;
+}
+#navbar1>div>a{
+    text-decoration: none;
+    color: black;
+    margin-left: 1.5%;
+    font-size: 14px;
+}
+#navbar1>div>a>img{
+    height: 13px;
+    width: 13px;
+    margin-top: 2px;
+}
+/* 000000000000000000000000000000000000000000000000000 */
+
+#others{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 0px 13px 0px;
+}
+#others>a{
+    text-decoration: none;
+    color: black;
+}
+#others>a>p{
+    font-size: 17px;
+    font-family: sans-serif,montsterrat;
+}
+
+
+/* 000000000000000000000000000000000000000000000000000 */
+
+#navbar2{
+    display: flex;
+    width: 80%;
+    height: 50px;
+    margin: auto;
+}
+
+#navbar2>div{
+    display: flex;
+    width: 50%;
+    gap: 40px;
+    padding-top: 8px;
+}
+#navbar2>div>a>p{
+    padding-top: 10px;
+    text-decoration: none;
+}
+
+#navbar2>div>a{
+    color: black;
+    font-family: sans-serif,montserrat;
+    font-size: 15px;
+    text-decoration: none;
+}
+#navbar2>div+div{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 3px;
+    gap: 14px;
+}
+#navbar2>div:last-child>a>img{
+    height: 35px;
+    width: 35px;
+}
+#navbar2>div+div>input{
+    width: 250px;
+    font-size: 12px;
+    border-radius: 6px;
+}
+#adjLine{
+    height: 40px;
+    background-color: black;
+    width: 0.5px;
+}
+#navbar2>div>a>img{
+    margin-top: 4px;
+}
+#navbar2>div+div>a>p{
+    color: black;
+    font-family: sans-serif,montserrat;
+    font-size: 15px;
+    text-decoration: none;
+    margin-top: 3px;
+}
+
+/* 0000000000000000000000000000000000000000000000000000000000 */
+
+#discounts{
+    height: 362px;
+    position: relative;
+    text-align: center;
+}
+#discounts>a>img{
+    height: 500px;
+    width: 32.5%;
+}
+
+#discounts>button:first-child{
+    position: absolute;
+    font-size: 17px;
+    margin-top: 220px;
+    height: 50px;
+    width: 50px;
+}
+#discounts>button:last-child{
+    position: absolute;
+    font-size: 17px;
+    margin-top: 220px;
+    height: 50px;
+    width: 50px;
+}
+
+
+/* 0000000000000000000000000000000000000000000000000000000000 */
+
+#variety{
+    width: 80%;
+    margin: auto;
+}
+
+
+

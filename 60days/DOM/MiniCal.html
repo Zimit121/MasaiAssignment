@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    
+    .maindiv {
+        height: 90px;
+        width: 24%;
+        margin: auto;
+        margin-top: 150px;
+    }
+
+    .value {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+
+    .btn {
+        display: flex;
+        justify-content: space-around;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="maindiv">
+        <div class="value">
+            <div class="inputdiv">
+                <input type="number" id="first" placeholder="enter 1st number">
+            </div>
+            <div class="inputdiv">
+                <input type="number" id="second" placeholder="enter 2nd number">
+            </div>
+        </div>
+        <br>
+
+        <div class="btn">
+            <button onclick="add()">Add</button>
+            <button onclick="sub()">Subtract</button>
+            <button onclick="mul()">Multiply</button>
+            <button onclick="div()">Divide</button>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    function add() {
+        let first = document.getElementById('first').value
+        let second = document.getElementById('second').value
+        alert(Number(first) + Number(second))
+    }
+
+    function sub() {
+        let first = document.getElementById('first').value
+        let second = document.getElementById('second').value
+        alert(Number(first) - Number(second))
+    }
+
+    function mul() {
+        let first = document.getElementById('first').value
+        let second = document.getElementById('second').value
+        alert(Number(first) * Number(second))
+    }
+
+    function div() {
+        let first = document.getElementById('first').value
+        let second = document.getElementById('second').value
+        alert(Number(first) / Number(second))
+    }
+</script>

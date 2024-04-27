@@ -1,31 +1,148 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Listing</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .product-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .product-item h3 {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .product-item p {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <h1>Product Listing</h1>
-        <!-- Category Filter Dropdown -->
         <select id="categoryFilter">
             <option value="">All Categories</option>
-            <!-- Categories will be populated dynamically -->
         </select>
-        <!-- Search Input -->
         <input type="text" id="searchInput" placeholder="Search products...">
-        <!-- Sorting Options Dropdown -->
         <select id="sortOptions">
             <option value="asc">Price: Low to High</option>
             <option value="desc">Price: High to Low</option>
         </select>
     </header>
     <main id="productListing">
-        <!-- Product items will be populated dynamically -->
     </main>
-    <script src="script.js"></script>
+    <script>
+        const productListing = document.getElementById('productListing');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const searchInput = document.getElementById('searchInput');
+        const sortOptions = document.getElementById('sortOptions');
+
+        fetch('https://fakestoreapi.com/products')
+            .then(response => response.json())
+            .then(data => {
+                displayProducts(data);
+
+                populateCategories(data);
+            });
+
+        function displayProducts(products) {
+            productListing.innerHTML = '';
+
+            products.forEach(product => {
+                const productItem = document.createElement('div');
+                productItem.classList.add('product-item');
+                productItem.innerHTML = `
+            <img src="${product.image}" alt="${product.title}">
+            <h3>${product.title}</h3>
+            <p>$${product.price}</p>
+        `;
+                productListing.appendChild(productItem);
+            });
+        }
+
+        function populateCategories(products) {
+            const categories = [...new Set(products.map(product => product.category))];
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                categoryFilter.appendChild(option);
+            });
+        }
+
+        categoryFilter.addEventListener('change', filterByCategory);
+        searchInput.addEventListener('input', searchProducts);
+        sortOptions.addEventListener('change', sortProducts);
+
+        function filterByCategory() {
+            const selectedCategory = categoryFilter.value;
+            fetch('https://fakestoreapi.com/products')
+                .then(response => response.json())
+                .then(data => {
+                    const filteredProducts = selectedCategory ?
+                        data.filter(product => product.category === selectedCategory) :
+                        data;
+                    displayProducts(filteredProducts);
+                });
+        }
+
+        function searchProducts() {
+            const searchTerm = searchInput.value.toLowerCase();
+            fetch('https://fakestoreapi.com/products')
+                .then(response => response.json())
+                .then(data => {
+                    const matchingProducts = data.filter(product =>
+                        product.title.toLowerCase().includes(searchTerm)
+                    );
+                    displayProducts(matchingProducts);
+                });
+        }
+
+        function sortProducts() {
+            const sortOrder = sortOptions.value;
+            fetch('https://fakestoreapi.com/products')
+                .then(response => response.json())
+                .then(data => {
+                    const sortedProducts = [...data].sort((a, b) => {
+                        return sortOrder === 'asc' ? a.price - b.price : b.price - a.price;
+                    });
+                    displayProducts(sortedProducts);
+                });
+        }
+    </script>
 </body>
+
 </html>
